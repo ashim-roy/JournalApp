@@ -39,11 +39,11 @@ public class SpringSecurity {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }*/
 
-    @Bean
+    /*@Bean
     public UserDetailsService userDetailsService() {
         return userDetailsService;
     }
-
+*/
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

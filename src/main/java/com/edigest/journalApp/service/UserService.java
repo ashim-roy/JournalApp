@@ -1,8 +1,6 @@
 package com.edigest.journalApp.service;
 
-import com.edigest.journalApp.entity.JournalEntry;
 import com.edigest.journalApp.entity.User;
-import com.edigest.journalApp.repository.JournalEntryRepository;
 import com.edigest.journalApp.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
@@ -11,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -25,13 +22,13 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public void saveUser(User user) {
-            userRepository.save(user);
-    }
-
     public void saveNewUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Arrays.asList("USER"));
+        userRepository.save(user);
+    }
+
+   public void saveUser(User user) {
         userRepository.save(user);
     }
 
