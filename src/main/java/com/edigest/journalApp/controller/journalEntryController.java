@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")
-public class journalEntryControllerV2 {
+public class journalEntryController {
 
     @Autowired
     private JournalEntryService journalEntryService;

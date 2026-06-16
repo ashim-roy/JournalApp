@@ -53,7 +53,7 @@ public class UserServiceTests {
         assertTrue(!user.getJournalEntries().isEmpty());
     }
 
-    @Disabled
+
     @ParameterizedTest
     @ValueSource(strings = {
             "ashim",
@@ -61,10 +61,12 @@ public class UserServiceTests {
             "eagle",
             "siyal"
     })
+    @Disabled
     public void testFindByUsernames(String name) {
         assertNotNull(userRepository.findByUserName(name), "failed for: "+ name);
     }
 
+    @Disabled
     public void testEnumFindByUsernames(String name) {
         assertNotNull(userRepository.findByUserName(name), "failed for: "+ name);
     }

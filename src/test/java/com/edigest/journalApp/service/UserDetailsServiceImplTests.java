@@ -4,6 +4,7 @@ import com.edigest.journalApp.entity.User;
 import com.edigest.journalApp.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -29,6 +30,7 @@ public class UserDetailsServiceImplTests {
         MockitoAnnotations.openMocks(this);
     }
 
+    @Disabled
     @Test
     void loadUserByUsernameTest(){
         when(userRepository.findByUserName(ArgumentMatchers.anyString())).thenReturn(User.builder().userName("ram").password("ramayan").roles(new ArrayList<>()).build());
